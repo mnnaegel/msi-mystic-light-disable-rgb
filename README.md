@@ -12,7 +12,7 @@ In this case, the VID and PID are in hexadecimal format and correspond to the My
 2. Replace your VID and PID in the `main.py`
 
 The script can now be ran via `python main.py` to disable the backlight, but to make it so that it runs at startup you can follow these steps:
-1. Run `sudo nano /etc/systemd/system/kill-led.service` and insert
+1. Run `sudo nano /etc/systemd/system/kill-led.service` and insert the following, ensuring that the user and /path/to/script are adjusted accordingly
 ```
 [Unit]
 Description=Kill Keyboard Backlight
@@ -20,8 +20,8 @@ After=multi-user.target
 
 [Service]
 Type=simple
-User=mynhacaul
-ExecStart=/usr/bin/python3 /home/mynhacaul/PycharmProjects/kill-led/main.py
+User=user
+ExecStart=/usr/bin/python3 /path/to/script
 
 [Install]
 WantedBy=multi-user.target
